@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+ <html ng-app="booksApp">
+
+<head>
+   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
+
+   <script src="https://code.angularjs.org/1.4.9/angular.min.js"></script>
+   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+   <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+   <script src="data/dirPagination.js"></script>
+
+</head>
+   <script src="script.js"></script>
+  <title>Books</title>
+</head>
+
+ <body ng-controller="loginController">
+
+	  <nav class="navbar navbar-default">
+		<div class="container">
+		  <div class="navbar-header">
+			<a class="navbar-brand" href="">Library</a>    
+		  </div>
+		<span  ><a class="navbar-brand pull-right" href="#/">Logout</a></span> 
+	  </nav>
+	  <div class="col-md-12" id="main">  
+		<div class="col-md-12" ng-view></div>    
+	  </div> 
+ </body>
+</html>

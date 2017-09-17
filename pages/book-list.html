@@ -1,0 +1,78 @@
+<div class="col-md-12">
+
+    <div class="col-md-12">
+        <div class="col-md-4"></div>
+        <div class="col-md-3" style="color:#3b84c7"><h1>Book List </h1></div>
+    </div>
+	<div class="col-md-12 row" style="text-align: center;" ng-if="saved==true">
+		<div class="col-md-4"></div>
+        <div class=" col-md-4 alert alert-success">
+		<strong>Success!</strong> Book Saved successfully.
+		</div>
+		 <div class="col-md-4"></div>
+    </div>
+	<div class="col-md-12 row" style="text-align: center;" ng-if="deleted==true">
+		<div class="col-md-4"></div>
+				 <div class=" col-md-4 alert alert-danger">
+			  <strong>Danger!</strong> Book Deleted.
+			</div>
+		 <div class="col-md-4"></div>
+    </div>
+    <div class="col-md-12 row">
+        <div class="col-md-9"></div>
+        <div class="col-md-3" style=" padding-bottom: 6px;">
+            <button type="button" ng-click="onClickBookEdit()" class="btn btn-primary">Add Book</button>
+        </div>
+    </div>
+
+    <div class="col-md-12 row" style="text-align: center;" ng-if="loading==true">
+        <i class="fa fa-cog fa-spin fa-3x fa-fw"></i>
+        <span class="sr-only">Loading...</span>
+
+        <p style="font-weight: bold ">Loading Books...</p>
+
+    </div>
+
+    <div class="col-md-12 row" ng-if="loading==false">
+        <div class="col-md-2"></div>
+        <div class="col-md-8" style="border: 1px solid gray;">
+
+
+            <table class="table col-md-12">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>Title</th>
+                    <th ng-click="orderDate=!orderDate">PublishDate<i ng-if="orderDate==false" class="fa fa-sort-asc"
+                                                                      aria-hidden="true"></i><i ng-if="orderDate==true"
+                                                                                                class="fa fa-sort-desc"
+                                                                                                aria-hidden="true"></i>
+                    </th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr dir-paginate="book in bookListData | itemsPerPage: 10 | orderBy:'PublishDate':orderDate"
+                ">
+                <td>{{book.ID}}</td>
+                <td>{{book.Title}}</td>
+                <td>{{book.PublishDate | date:'dd-MMMM-yyyy'}}</td>
+                <td>
+                    <button type="button" ng-click="onClickBookEdit(book.ID)" class="btn btn-primary">Edit</button>
+                    <button type="button" ng-click="onClickDelete(book.ID)" class="btn btn-primary">Delete</button>
+                </td>
+
+                </tr>
+                </tbody>
+            </table>
+            <div class="roe">
+                <div class="col-md-3"></div>
+                <div class="col-md-9">
+                    <dir-pagination-controls></dir-pagination-controls>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+

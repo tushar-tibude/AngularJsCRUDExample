@@ -1,0 +1,36 @@
+<div class="col-md-12">
+
+
+    <div class="col-md-4">
+
+    </div>
+	<form class="row" name="loginForm" novalidate>
+    <div class="col-md-4" style="border: 1px solid gray;
+    border-radius: 6px;
+    box-shadow: 15px 15px 5px rgba(136, 136, 136, 0.3);
+}">
+    
+
+        <h1>Login</h1>
+
+        <div class="form-group">
+            <input type="text" class="form-control" ng-model="username" placeholder="username" name="username" required/>
+        </div>
+
+        <div class="form-group">
+            <input type="password" class="form-control" ng-model="password"  placeholder="password" name="password" required/>
+        </div>
+
+        <div class="form-group">
+            <button type="button" ng-click="onClickLogin()"  ng-disabled="loginForm.$invalid"  class="btn btn-success" >Login</button>
+            <span class="text-danger">{{ error }}</span>
+        </div>
+		
+		
+    </div>
+	</form>
+    <div class="col-md-12 row" style="text-align: center;" ng-if="loading==true">
+        <i class="fa fa-cog fa-spin fa-3x fa-fw"></i>
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>

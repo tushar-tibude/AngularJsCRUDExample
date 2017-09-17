@@ -1,0 +1,90 @@
+<div class="text-center">
+    <h1>Add/Edit Book </h1>
+
+    <div class="col-md-2">
+    </div>
+    <form class="row" name="myForm" novalidate>
+        <div class="col-md-7" class="form" style="border-radius: 6px;border:1px solid gray;padding: 10px;">
+            <div class="form-group row">
+                <label class="control-label col-md-3" for="title">Title:</label>
+
+                <div class="col-md-8">
+                    <input type="text" class="form-control" name="title" ng-model='bookData.Title' id="Title"
+                           placeholder="Enter Title" ng-pattern="/^(?=.*[0-9])(?=.*[a-zA-Z ])([a-zA-Z0-9 ]+)$/" required>
+                    <span class="pull-left" style="color:red" ng-show="myForm.title.$dirty && myForm.title.$invalid">
+                    <span class="pull-left" ng-show="myForm.title.$error.required">Title is required.</span>
+                        <span class="pull-left" ng-show="myForm.title.$error.pattern">Please enter combination of Numbers and alphabet only.</span>
+
+                    </span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="control-label col-md-3" for="description">Description:</label>
+
+                <div class="col-md-8">
+                    <textarea class="form-control" placeholder="Enter Description" ng-model='bookData.Description'
+                              rows="5" name="description" id="description" required></textarea>
+                          <span class="pull-left" style="color:red"
+                                ng-show="myForm.description.$dirty && myForm.description.$invalid">
+                    <span class="pull-left" ng-show="myForm.description.$error.required">Description is required.</span>
+                    </span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="control-label col-md-3" for="PublishDate">PublishDate:</label>
+
+                <div class="col-md-8">
+                    <input type="date" ng-model='bookData.PublishDate' class="form-control" id="PublishDate"
+                           placeholder="Enter PublishDate">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="control-label col-md-3" for="excerpt">Excerpt:</label>
+
+                <div class="col-md-8">
+                    <input type="text" ng-model='bookData.Excerpt' class="form-control" id="excerpt"
+                           placeholder="Enter Title">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="control-label col-md-3" for="pageCount">Page Count:</label>
+
+                <div class="col-md-8">
+                    <input type="text" ng-model='bookData.PageCount' class="form-control" id="pageCount"
+                           name="pageCount" ng-pattern="/^[0-9]+$/"
+                           placeholder="Enter Page Count" required>
+                    <span class="pull-left" style="color:red"
+                          ng-show="myForm.pageCount.$dirty && myForm.pageCount.$invalid">
+                    <span class="pull-left" ng-show="myForm.pageCount.$error.required">PageCount is required.</span>
+                        <span class="pull-left" ng-show="myForm.pageCount.$error.pattern">Please enter positive Numbers only.</span>
+
+                    </span>
+
+                </div>
+            </div>
+
+
+            <div class="form-group row ">
+                <div class="col-md-7"></div>
+
+                <div class="col-md-3 ">
+
+                    <button type="submit" ng-click="onClickSubmit(bookData)"
+                            ng-disabled="myForm.$invalid" class="btn btn-success">Submit
+                    </button>
+                    <button type="button" ng-click="onClickCancel()" class="btn btn-warning">Cancel</button>
+
+                </div>
+
+
+            </div>
+
+        </div>
+    </form>
+
+    <div class="col-md-12 row" style="text-align: center;" ng-if="loading==true">
+        <i class="fa fa-cog fa-spin fa-3x fa-fw"></i>
+        <span class="sr-only">Loading...</span>
+    </div>
+	
+</div>
